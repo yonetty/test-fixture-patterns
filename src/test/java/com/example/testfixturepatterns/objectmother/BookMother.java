@@ -1,4 +1,6 @@
-package com.example.testfixturepatterns;
+package com.example.testfixturepatterns.objectmother;
+
+import com.example.testfixturepatterns.Book;
 
 import java.util.ArrayList;
 import java.util.List;

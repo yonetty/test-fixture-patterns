@@ -13,7 +13,7 @@ public class LoanService {
         this.today = today;
     }
 
-    public LoanCheckResult check(User user, Book[] books) {
+    public LoanCheckResult check(User user, Book... books) {
         if (user.isExpiredAt(today)) {
             return LoanCheckResult.error("USER_EXPIRED");
         }

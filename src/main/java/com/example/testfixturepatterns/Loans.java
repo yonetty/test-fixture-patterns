@@ -22,6 +22,10 @@ public class Loans {
         this.loanList = loanList;
     }
 
+    public void add(Loan loan) {
+        loanList.add(loan);
+    }
+
     public int count() {
         return loanList.size();
     }

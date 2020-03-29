@@ -1,5 +1,8 @@
 package com.example.testfixturepatterns;
 
+import com.example.testfixturepatterns.builder.BookBuilder;
+import com.example.testfixturepatterns.builder.LoanBuilder;
+import com.example.testfixturepatterns.builder.UserBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +16,6 @@ public class TestDataBuilderLoanServiceTest {
 
     private static final LocalDate TODAY = LocalDate.now();
     private static final LocalDate YESTERDAY = TODAY.minusDays(1);
-    private static final LocalDate A_WEEK_AGO = TODAY.minusDays(7);
 
     private LoanService sut;
 
@@ -32,10 +34,10 @@ public class TestDataBuilderLoanServiceTest {
 
         User user = new UserBuilder().withLoans(loans).build();
 
-        Book[] books = new Book[]{new BookBuilder().build()};
+        Book book = new BookBuilder().build();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(false));
@@ -47,10 +49,10 @@ public class TestDataBuilderLoanServiceTest {
         // Arrange
         User user = new UserBuilder().withExpirationDate(YESTERDAY).build();
 
-        Book[] books = new Book[]{new BookBuilder().build()};
+        Book book = new BookBuilder().build();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));
@@ -68,10 +70,10 @@ public class TestDataBuilderLoanServiceTest {
 
         User user = new UserBuilder().withLoans(loans).build();
 
-        Book[] books = new Book[]{new BookBuilder().build()};
+        Book book = new BookBuilder().build();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));
@@ -108,10 +110,10 @@ public class TestDataBuilderLoanServiceTest {
 
         User user = new UserBuilder().withLoans(loans).build();
 
-        Book[] books = new Book[]{new BookBuilder().build()};
+        Book book = new BookBuilder().build();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));

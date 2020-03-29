@@ -1,4 +1,9 @@
-package com.example.testfixturepatterns;
+package com.example.testfixturepatterns.objectmother;
+
+import com.example.testfixturepatterns.Book;
+import com.example.testfixturepatterns.Loan;
+import com.example.testfixturepatterns.Loans;
+import com.example.testfixturepatterns.User;
 
 import java.time.LocalDate;
 

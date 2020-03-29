@@ -1,5 +1,7 @@
 package com.example.testfixturepatterns;
 
+import com.example.testfixturepatterns.objectmother.BookMother;
+import com.example.testfixturepatterns.objectmother.UserMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +14,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ObjectMotherLoanServiceTest {
 
     private static final LocalDate TODAY = LocalDate.now();
-    private static final LocalDate YESTERDAY = TODAY.minusDays(1);
-    private static final LocalDate A_WEEK_AGO = TODAY.minusDays(7);
 
     private LoanService sut;
 
@@ -27,10 +27,10 @@ public class ObjectMotherLoanServiceTest {
         // Arrange
         User user = UserMother.aUserBorrowing2Books();
 
-        Book[] books = BookMother.books(1);
+        Book book = BookMother.aBook();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(false));
@@ -42,10 +42,10 @@ public class ObjectMotherLoanServiceTest {
         // Arrange
         User user = UserMother.aUserExpiredAt(TODAY);
 
-        Book[] books = BookMother.books(1);
+        Book book = BookMother.aBook();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));
@@ -57,10 +57,10 @@ public class ObjectMotherLoanServiceTest {
         // Arrange
         User user = UserMother.aUserBorrowing3Books();
 
-        Book[] books = BookMother.books(1);
+        Book book = BookMother.aBook();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));
@@ -87,10 +87,10 @@ public class ObjectMotherLoanServiceTest {
         // Arrange
         User user = UserMother.aUserBorrowing2BooksOneOfWhichIsExpiredAt(TODAY);
 
-        Book[] books = BookMother.books(1);
+        Book book = BookMother.aBook();
 
         // Act
-        LoanCheckResult result = sut.check(user, books);
+        LoanCheckResult result = sut.check(user, book);
 
         // Assert
         assertThat(result.hasError, is(true));

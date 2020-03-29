@@ -1,4 +1,7 @@
-package com.example.testfixturepatterns;
+package com.example.testfixturepatterns.builder;
+
+import com.example.testfixturepatterns.Loans;
+import com.example.testfixturepatterns.User;
 
 import java.time.LocalDate;
 

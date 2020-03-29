@@ -1,4 +1,6 @@
-package com.example.testfixturepatterns;
+package com.example.testfixturepatterns.builder;
+
+import com.example.testfixturepatterns.Book;
 
 public class BookBuilder {
 
