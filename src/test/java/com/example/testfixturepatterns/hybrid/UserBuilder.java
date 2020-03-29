@@ -25,6 +25,8 @@ public class UserBuilder {
         return this;
     }
 
+    private UserBuilder() {}
+
     public static UserBuilder ofDefault() {
         return new UserBuilder();
     }
@@ -33,7 +35,7 @@ public class UserBuilder {
         UserBuilder builder = new UserBuilder();
         List<Loan> loanList = new ArrayList<>();
         for (int i = 0; i < numOfBooks; i++) {
-            Loan loan = new LoanBuilder().build();
+            Loan loan = LoanBuilder.ofDefault().build();
             loanList.add(loan);
         }
         builder.loans = Loans.of(loanList.toArray(new Loan[0]));

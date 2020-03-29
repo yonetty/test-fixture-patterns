@@ -20,6 +20,8 @@ public class BookBuilder {
         return this;
     }
 
+    private BookBuilder() {}
+
     public static BookBuilder ofDefault() {
         return new BookBuilder();
     }

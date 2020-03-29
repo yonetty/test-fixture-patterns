@@ -7,10 +7,11 @@ import java.time.LocalDate;
 
 public class LoanBuilder {
 
-    private Book book = new BookBuilder().build();
+    private Book book = BookBuilder.ofDefault().build();
     private LocalDate loanDate = LocalDate.MIN;
     private LocalDate dueDate = LocalDate.MAX;
 
+    private LoanBuilder() {}
 
     public static LoanBuilder ofDefault() {
         return new LoanBuilder();
