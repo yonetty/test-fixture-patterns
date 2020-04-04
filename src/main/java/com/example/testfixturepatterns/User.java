@@ -14,6 +14,8 @@ public class User {
         this.loans = loans;
     }
 
+    private User() {}
+
     public Loans getLoans() {
         return loans;
     }

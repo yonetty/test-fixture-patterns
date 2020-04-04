@@ -14,6 +14,8 @@ public class Book {
         this.inLibraryUse = inLibraryUse;
     }
 
+    private Book() {}
+
     public boolean isInLibraryUse() {
         return inLibraryUse;
     }

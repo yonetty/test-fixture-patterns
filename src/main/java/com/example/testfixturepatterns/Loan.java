@@ -16,6 +16,8 @@ public class Loan {
         this.dueDate = dueDate;
     }
 
+    private Loan() {}
+
     public boolean isExpiredAt(LocalDate date) {
         return dueDate.isBefore(date);
     }
